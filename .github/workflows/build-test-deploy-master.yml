@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build-prod
+        run: npm run build-prod && cp dist/code-sage/index.html dist/code-sage/404.html
 
       - name: Test
         run: npm run test
@@ -49,4 +49,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: dist/code-sage-fe # The folder the action should deploy.
+          folder: dist/code-sage # The folder the action should deploy.
