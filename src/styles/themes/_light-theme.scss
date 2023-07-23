@@ -11,13 +11,13 @@ $code-sage-warn: mat.define-palette(mat.$red-palette);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $code-sage-theme: mat.define-light-theme(
-    (
-      color: (
-        primary: $code-sage-primary,
-        accent: $code-sage-accent,
-        warn: $code-sage-warn,
-      ),
-    )
+  (
+    color: (
+      primary: $code-sage-primary,
+      accent: $code-sage-accent,
+      warn: $code-sage-warn,
+    ),
+  )
 );
 
 // Include theme styles for core and each component used in your app.
