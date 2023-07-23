@@ -1,1 +1,37 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$code-sage-primary: mat.define-palette(mat.$blue-palette, 900);
+$code-sage-accent: mat.define-palette(mat.$orange-palette, 900);
+
+// The warn palette is optional (defaults to red).
+$code-sage-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$code-sage-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $code-sage-primary,
+      accent: $code-sage-accent,
+      warn: $code-sage-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($code-sage-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
