@@ -4,12 +4,13 @@
     <button mat-button>Home</button>
     <button mat-button>Blog</button>
     <button mat-button>About</button>
-    <button mat-flat-button color="primary">Newsletter</button>
+    <button mat-flat-button color="primary" (click)="_localisation.setToCzech()">Newsletter</button>
   </div>
   <div class="navbar__lang">
     <button mat-button [matMenuTriggerFor]="menu">Čeština</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>English</button>
     </mat-menu>
+    {{ kokos | async }}
   </div>
 </mat-toolbar>
