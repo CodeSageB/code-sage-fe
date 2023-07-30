@@ -11,9 +11,11 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from '../environments/environment';
+import { AvailableLangsPipe } from './shared/pipes/available-langs.pipe';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, environment.i18nPath, '.json');
 }
 
 @NgModule({
@@ -31,8 +33,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'en',
     }),
+    AvailableLangsPipe,
   ],
   providers: [],
   bootstrap: [AppComponent],

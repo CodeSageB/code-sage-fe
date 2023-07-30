@@ -1,7 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { LanguagesEnum } from '../../data/schema/languages.enum';
-import { Observable } from 'rxjs';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
@@ -9,30 +8,42 @@ import { toObservable } from '@angular/core/rxjs-interop';
 export class LocalisationService {
   private readonly localStorageLanguageKey = 'language';
 
-  private activeLanguage = signal<LanguagesEnum>(this.getLanguageFromStorage() ?? LanguagesEnum.EN);
+  public currentLangSignal = signal(LanguagesEnum.EN);
 
-  private getLanguageFromStorage(): LanguagesEnum | null {
+  public allLangsSignal = signal(Object.values(LanguagesEnum));
+
+  constructor(private _translateService: TranslateService) {
+    this.initTranslation();
+  }
+
+  public setLang(lang: string) {
+    this._translateService.use(lang);
+    localStorage.setItem(this.localStorageLanguageKey, lang);
+    this.currentLangSignal.set(lang as LanguagesEnum);
+  }
+
+  private getLanguageFromStorage(): string | null {
     const language = localStorage.getItem(this.localStorageLanguageKey);
 
-    if (language) {
-      const languageEnumValue = LanguagesEnum[language as keyof typeof LanguagesEnum];
-
-      return languageEnumValue ? languageEnumValue : null;
+    if (this.isLanguage(language)) {
+      return language;
     }
 
     return null;
   }
 
-  public getActiveLanguage(): LanguagesEnum {
-    return this.activeLanguage();
+  private initTranslation(): void {
+    this._translateService.setDefaultLang(this.currentLangSignal());
+    this._translateService.addLangs(this.allLangsSignal());
+
+    const lang = this.getLanguageFromStorage();
+
+    if (lang) {
+      this.setLang(lang);
+    }
   }
 
-  public setToCzech() {
-    localStorage.setItem(this.localStorageLanguageKey, LanguagesEnum.CS);
-    this.activeLanguage.set(LanguagesEnum.CS);
-  }
-
-  public get getActiveLanguage$(): Observable<LanguagesEnum> {
-    return toObservable(this.activeLanguage);
+  private isLanguage(lang: string | null): lang is LanguagesEnum {
+    return !!lang && Object.values(LanguagesEnum).includes(lang as LanguagesEnum);
   }
 }
