@@ -1,0 +1,26 @@
+<mat-toolbar class="navbar">
+  <span>Code Sage</span>
+  <div class="navbar__buttons">
+    <button mat-button>{{ 'home' | translate }}</button>
+    <button mat-button>{{ 'blog' | translate }}</button>
+    <button mat-button>{{ 'about' | translate }}</button>
+    <button mat-flat-button color="primary">{{ 'newsletter' | translate }}</button>
+  </div>
+  <div class="navbar__lang">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>language</mat-icon>
+      {{ localisation.currentLangSignal() | translate }}</button
+    >
+    <mat-menu #menu="matMenu">
+      <ng-container
+        *ngFor="
+          let lang of localisation.allLangsSignal()
+            | availableLangs: localisation.currentLangSignal()
+        ">
+        <button mat-menu-item (click)="localisation.setLang(lang)">
+          {{ lang | translate }}
+        </button>
+      </ng-container>
+    </mat-menu>
+  </div>
+</mat-toolbar>
