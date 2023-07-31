@@ -1,0 +1,23 @@
+<mat-drawer-container class="content" hasBackdrop="true">
+  <mat-drawer position="end" #drawer mode="over" opened="false">
+    <mat-nav-list>
+      <div class="subheader" mat-subheader
+        ><h3
+          ><b>{{ 'sections' | translate }}</b></h3
+        ></div
+      >
+      <ng-container *ngFor="let item of MENU_ITEMS">
+        <a mat-list-item class="list-item">{{ item.name | translate }}</a>
+      </ng-container>
+    </mat-nav-list>
+    <div class="subheader" mat-subheader
+      ><h3
+        ><b>{{ 'language' | translate }}</b></h3
+      ></div
+    >
+    <app-language-switch style="margin-left: auto"></app-language-switch>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

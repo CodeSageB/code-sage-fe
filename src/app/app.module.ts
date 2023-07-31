@@ -13,6 +13,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AvailableLangsPipe } from './shared/pipes/available-langs.pipe';
+import { LanguageSwitchComponent } from './shared/components/language-switch/language-switch.component';
+import { MenuDrawerComponent } from './shared/components/menu-drawer/menu-drawer.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.i18nPath, '.json');
@@ -35,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
     AvailableLangsPipe,
+    LanguageSwitchComponent,
+    MenuDrawerComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,26 +1,20 @@
 <mat-toolbar class="navbar">
-  <span>Code Sage</span>
-  <div class="navbar__buttons">
-    <button mat-button>{{ 'home' | translate }}</button>
-    <button mat-button>{{ 'blog' | translate }}</button>
-    <button mat-button>{{ 'about' | translate }}</button>
-    <button mat-flat-button color="primary">{{ 'newsletter' | translate }}</button>
+  <div class="navbar__logo">
+    <span>Code Sage</span>
   </div>
-  <div class="navbar__lang">
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>language</mat-icon>
-      {{ localisation.currentLangSignal() | translate }}</button
-    >
-    <mat-menu #menu="matMenu">
-      <ng-container
-        *ngFor="
-          let lang of localisation.allLangsSignal()
-            | availableLangs: localisation.currentLangSignal()
-        ">
-        <button mat-menu-item (click)="localisation.setLang(lang)">
-          {{ lang | translate }}
-        </button>
-      </ng-container>
-    </mat-menu>
+  <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__buttons">
+    <ng-container *ngFor="let item of MENU_ITEMS">
+      <button mat-flat-button [class.background-light]="!item?.color" [color]="item?.color">{{
+        item.name | translate
+      }}</button>
+    </ng-container>
+  </div>
+  <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__lang">
+    <app-language-switch></app-language-switch>
+  </div>
+  <div *ngIf="drawerControls.mobileQueryMatches()">
+    <button mat-icon-button (click)="drawerControls.toggleDrawer()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
 </mat-toolbar>

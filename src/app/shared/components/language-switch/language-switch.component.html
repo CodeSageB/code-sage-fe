@@ -1,0 +1,16 @@
+<div class="language">
+  <button class="language__active" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>language</mat-icon>
+    {{ localisation.currentLangSignal() | translate }}</button
+  >
+  <mat-menu #menu="matMenu">
+    <ng-container
+      *ngFor="
+        let lang of localisation.allLangsSignal() | availableLangs: localisation.currentLangSignal()
+      ">
+      <button mat-menu-item (click)="localisation.setLang(lang)">
+        {{ lang | translate }}
+      </button>
+    </ng-container>
+  </mat-menu>
+</div>
