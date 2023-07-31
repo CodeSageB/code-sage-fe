@@ -1,4 +1,19 @@
 <section class="layout">
   <app-navbar></app-navbar>
-  <router-outlet class="content"></router-outlet>
+  <!--  TODO Split to component-->
+  <mat-drawer-container class="content" hasBackdrop="true">
+    <mat-drawer position="end" #drawer mode="over" opened="false">
+      <h3>Code Sage</h3>
+      <mat-nav-list>
+        <a mat-list-item>{{ 'home' | translate }}</a>
+        <a mat-list-item>{{ 'blog' | translate }}</a>
+        <a mat-list-item>{{ 'about' | translate }}</a>
+        <a mat-list-item>{{ 'newsletter' | translate }}</a>
+      </mat-nav-list>
+      <!--      TODO Add language switch-->
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </section>

@@ -16,7 +16,7 @@ export class LocalisationService {
     this.initTranslation();
   }
 
-  public setLang(lang: string) {
+  public setLang(lang: string): void {
     this._translateService.use(lang);
     localStorage.setItem(this.localStorageLanguageKey, lang);
     this.currentLangSignal.set(lang as LanguagesEnum);

@@ -1,12 +1,15 @@
 <mat-toolbar class="navbar">
-  <span>Code Sage</span>
-  <div class="navbar__buttons">
+  <div class="navbar__logo">
+    <span>Code Sage</span>
+  </div>
+  <!--  TODO Split to components-->
+  <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__buttons">
     <button mat-button>{{ 'home' | translate }}</button>
     <button mat-button>{{ 'blog' | translate }}</button>
     <button mat-button>{{ 'about' | translate }}</button>
     <button mat-flat-button color="primary">{{ 'newsletter' | translate }}</button>
   </div>
-  <div class="navbar__lang">
+  <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__lang">
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon>language</mat-icon>
       {{ localisation.currentLangSignal() | translate }}</button
@@ -23,4 +26,15 @@
       </ng-container>
     </mat-menu>
   </div>
+  <div *ngIf="drawerControls.mobileQueryMatches()">
+    <button mat-icon-button (click)="drawerControls.toggleDrawer()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
+
+<ng-template #toggleMenuButton>
+  <button mat-icon-button (click)="drawerControls.toggleDrawer()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</ng-template>

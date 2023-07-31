@@ -6,9 +6,16 @@
   font-size: 1.5rem;
   background: $color-light;
 
-  button {
+  &__buttons button,
+  &__lang button {
     font-size: 1.2rem;
     align-self: stretch;
     padding: 1.3rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }
