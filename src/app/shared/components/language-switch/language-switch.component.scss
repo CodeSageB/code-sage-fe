@@ -1,0 +1,9 @@
+.language {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__active {
+    font-size: 1.2rem;
+  }
+}

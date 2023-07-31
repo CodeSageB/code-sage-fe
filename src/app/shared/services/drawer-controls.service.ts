@@ -18,6 +18,9 @@ export class DrawerControlsService {
   }
 
   public mobileQueryMatches(): boolean {
+    if (!this._mobileQuery?.matches && this._drawer?.opened) {
+      this._drawer.close();
+    }
     return this._mobileQuery?.matches ?? false;
   }
 
