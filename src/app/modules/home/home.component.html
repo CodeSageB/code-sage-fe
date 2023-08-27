@@ -1,8 +1,16 @@
 <section class="container home">
   <div class="home__landscape container__content--full">
     <div class="text">
-      <p class="text--heading">Code Sage</p>
+      <h1 class="text--heading">Code Sage</h1>
       <p class="text--subheading">Ignite your passion for coding</p>
     </div>
   </div>
+  <div class="home__blogs container__content--center">
+    <h2 class="home__blogs__heading text text--subheading">Latest from the blog</h2>
+    <ng-container *ngIf="blogs$ | async as blogs; else loading">
+      <app-blog-list [blogs]="blogs"></app-blog-list>
+    </ng-container>
+  </div>
 </section>
+
+<ng-template #loading> loading </ng-template>

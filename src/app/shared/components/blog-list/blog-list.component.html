@@ -1,0 +1,5 @@
+<div *ngIf="showFilter"> Filter </div>
+<div class="blogs-list">
+  <app-blog *ngFor="let blog of blogs" [blog]="blog"></app-blog>
+</div>
+<div *ngIf="showPagination"> pagination </div>

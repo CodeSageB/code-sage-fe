@@ -1,0 +1,19 @@
+@import 'abstracts/variables';
+
+.blog {
+
+  &___title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $color-text-dark;
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    color: $color-accent;
+  }
+
+  &__content {
+    color: $color-text-light;
+  }
+}
