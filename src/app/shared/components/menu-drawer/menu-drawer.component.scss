@@ -1,5 +1,5 @@
-mat-drawer-container {
-  height: 100%;
+mat-sidenav-container.mat-drawer-container {
+  height: 100vh;
 }
 
 mat-drawer {
@@ -8,5 +8,10 @@ mat-drawer {
 
 .list-item, .subheader {
   text-align: center;
+}
+
+.language {
+  margin-top: 1rem;
+  display: block;
 }
 

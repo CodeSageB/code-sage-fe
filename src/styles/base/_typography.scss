@@ -1,0 +1,33 @@
+@import "abstracts/variables";
+
+.text {
+  text-align: center;
+
+  &--heading {
+    font-size: 4rem;
+    font-weight: 500;
+    color: $color-light;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.2rem;
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &--subheading {
+    font-size: 3rem;
+    font-weight: 500;
+    color: $color-accent;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.2rem;
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+      font-size: 1.8rem;
+    }
+  }
+}

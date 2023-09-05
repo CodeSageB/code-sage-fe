@@ -1,0 +1,10 @@
+<div class="blog">
+  <div class="blog__date">{{ blog.created | date }}</div>
+  <div class="blog__title">{{ blog.title }}</div>
+  <div class="blog__content">{{ blog.content }}</div>
+  <div class="blog__tags">
+    <mat-chip-listbox>
+      <mat-chip class="blog__tags__tag" *ngFor="let tag of blog.tags">{{ tag }}</mat-chip>
+    </mat-chip-listbox>
+  </div>
+</div>
