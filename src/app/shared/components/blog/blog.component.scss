@@ -1,19 +1,38 @@
 @import 'abstracts/variables';
 
 .blog {
+  display: grid;
+  gap: .5rem;
 
-  &___title {
+  &__title {
+    display: block;
     font-size: 2rem;
-    margin-bottom: 1rem;
     color: $color-text-dark;
   }
 
   &__date {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: $color-accent;
   }
 
   &__content {
     color: $color-text-light;
+    font-size: 1.2rem;
+    text-align: justify;
+    hyphens: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical
+  }
+
+  &__tags {
+    &__tag {
+      background: $color-main !important;
+      color: $color-light !important;
+      --mdc-chip-label-text-color: $color-text-light;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { AvailableLangsPipe } from './available-langs.pipe';
-import { LanguagesEnum } from '../../data/schema/languages.enum';
+import { LanguagesEnum } from '../schema/languages.enum';
 
 describe('AvailableLangsPipe', () => {
   it('create an instance', () => {

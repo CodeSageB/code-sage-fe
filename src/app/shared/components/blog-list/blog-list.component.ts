@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Blog } from '../../../data/schema/blog';
+import { Blog } from '../../schema/blog';
 import { BlogComponent } from '../blog/blog.component';
+import { MaterialModule } from '../../material.module';
 
 @Component({
   selector: 'app-blog-list',
   standalone: true,
-  imports: [CommonModule, BlogComponent],
+  imports: [CommonModule, BlogComponent, MaterialModule],
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.scss'],
 })

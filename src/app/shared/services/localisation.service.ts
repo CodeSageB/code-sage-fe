@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { LanguagesEnum } from '../../data/schema/languages.enum';
+import { LanguagesEnum } from '../schema/languages.enum';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({

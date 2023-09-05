@@ -10,6 +10,9 @@
     <ng-container *ngIf="blogs$ | async as blogs; else loading">
       <app-blog-list [blogs]="blogs"></app-blog-list>
     </ng-container>
+    <div class="home__blogs__button">
+      <button mat-flat-button color="accent">View all blogs</button>
+    </div>
   </div>
 </section>
 

@@ -17,9 +17,11 @@
 
   &__content--center {
     grid-column: center-start / center-end;
+    padding: 2rem;
   }
 
   &__content--full {
     grid-column: 1 / -1;
+    padding: 2rem;
   }
 }

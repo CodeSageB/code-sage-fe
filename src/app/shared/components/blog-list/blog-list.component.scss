@@ -1,5 +1,9 @@
 .blogs-list {
   display: grid;
   gap: 1rem;
-  margin: 1rem 0;
+
+  .divider {
+    width: 85%;
+    margin: 1rem auto;
+  }
 }
