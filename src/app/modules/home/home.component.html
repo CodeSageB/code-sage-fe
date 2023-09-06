@@ -9,11 +9,13 @@
     <h2 class="home__blogs__heading text text--subheading">Latest from the blog</h2>
     <ng-container *ngIf="blogs$ | async as blogs; else loading">
       <app-blog-list [blogs]="blogs"></app-blog-list>
+      <div class="home__blogs__button">
+        <button mat-flat-button color="accent">View all blogs</button>
+      </div>
     </ng-container>
-    <div class="home__blogs__button">
-      <button mat-flat-button color="accent">View all blogs</button>
-    </div>
   </div>
 </section>
 
-<ng-template #loading> loading </ng-template>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
