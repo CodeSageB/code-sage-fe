@@ -1,4 +1,5 @@
 @import 'abstracts/variables';
+@import 'base/typography';
 
 .home {
   display: grid;
@@ -8,10 +9,17 @@
   &__landscape {
     background: $color-main;
     height: 40vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    //TODO responsivnes
+    &__heading {
+      @include landscape-heading;
+    }
+
+    &__subheading {
+      @include landscape-subheading;
+    }
   }
 
   &__blogs {
@@ -19,7 +27,7 @@
     gap: 3rem;
 
     &__heading {
-      color: $color-text-dark !important;
+      @include blog-section-heading;
     }
 
     .mat-mdc-unelevated-button.mat-accent {
@@ -30,7 +38,7 @@
       display: flex;
       justify-content: center;
       & button {
-        font-size: 1.25rem;
+        @include typography-token(1.5rem, 400, $color-light);
         padding: 1.5rem 2rem;
         margin: 0 auto;
       }

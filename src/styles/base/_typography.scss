@@ -16,6 +16,18 @@
   word-spacing: $word-spacing;
 }
 
+@mixin landscape-heading {
+  @include typography-token(3.2rem, 500, $color-light, center);
+}
+
+@mixin landscape-subheading {
+  @include typography-token(2.5rem, 500, $color-accent, center);
+}
+
+@mixin blog-section-heading {
+  @include typography-token(2.4rem, 600, $color-text-dark, center);
+}
+
 @mixin blog-title {
   @include typography-token(1.6rem, 500);
 }
@@ -29,5 +41,5 @@
 }
 
 @mixin blog-tag {
-  @include typography-token(1rem, 500, $color-light);
+  @include typography-token(0.9rem, 500, $color-light);
 }
