@@ -1,25 +1,22 @@
 @import 'abstracts/variables';
+@import "base/typography";
 
 .blog {
   display: grid;
   gap: 0.5rem;
 
   &__title {
+    @include blog-title;
+
     display: block;
-    font-size: 2rem;
-    color: $color-text-dark;
   }
 
   &__date {
-    font-size: 1rem;
-    font-weight: 500;
-    color: $color-accent;
+    @include blog-date;
   }
 
   &__content {
-    color: $color-text-light;
-    font-size: 1.2rem;
-    text-align: justify;
+    @include blog-text;
     hyphens: auto;
     overflow: hidden;
     display: -webkit-box;
@@ -30,8 +27,8 @@
 
   &__tags {
     &__tag {
+      @include blog-tag;
       background: $color-main !important;
-      color: $color-light !important;
       --mdc-chip-label-text-color: $color-text-light;
     }
   }

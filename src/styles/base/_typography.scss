@@ -1,33 +1,33 @@
 @import 'abstracts/variables';
 
-.text {
-  text-align: center;
+@mixin typography-token(
+  $font-size,
+  $font-weight: 400,
+  $color: $color-text-dark,
+  $text-align: left,
+  $letter-spacing: normal,
+  $word-spacing: normal
+) {
+  font-size: $font-size;
+  color: $color;
+  text-align: $text-align;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  word-spacing: $word-spacing;
+}
 
-  &--heading {
-    font-size: 4rem;
-    font-weight: 500;
-    color: $color-light;
+@mixin blog-title {
+  @include typography-token(1.6rem, 500);
+}
 
-    @media only screen and (max-width: $bp-small) {
-      font-size: 2.2rem;
-    }
+@mixin blog-text {
+  @include typography-token(1rem, 400, $color-text-light, justify);
+}
 
-    @media only screen and (max-width: $bp-mobile) {
-      font-size: 1.8rem;
-    }
-  }
+@mixin blog-date {
+  @include typography-token(1rem, 500, $color-accent);
+}
 
-  &--subheading {
-    font-size: 3rem;
-    font-weight: 500;
-    color: $color-accent;
-
-    @media only screen and (max-width: $bp-small) {
-      font-size: 2.2rem;
-    }
-
-    @media only screen and (max-width: $bp-mobile) {
-      font-size: 1.8rem;
-    }
-  }
+@mixin blog-tag {
+  @include typography-token(1rem, 500, $color-light);
 }

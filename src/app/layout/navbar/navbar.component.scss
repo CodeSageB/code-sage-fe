@@ -1,20 +1,27 @@
 @import 'abstracts/variables';
+@import 'base/typography';
 
 .navbar {
+  @include typography-token(1.5rem, 500);
+
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
   background: $color-light;
 
   &__buttons button,
   &__lang button {
-    font-size: 1.2rem;
+    @include typography-token(1.2rem);
+
     align-self: stretch;
     padding: 1.3rem;
   }
 
   &__buttons .background-light {
     background: $color-light;
+  }
+
+  &__buttons .background-dark {
+    @include typography-token(1.2rem, normal, $color-light);
   }
 
   &__logo {
