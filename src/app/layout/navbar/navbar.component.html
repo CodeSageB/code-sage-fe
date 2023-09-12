@@ -4,9 +4,13 @@
   </div>
   <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__buttons">
     <ng-container *ngFor="let item of MENU_ITEMS">
-      <button mat-flat-button [class.background-light]="!item?.color" [color]="item?.color">{{
-        item.name | translate
-      }}</button>
+      <button
+        mat-flat-button
+        [class.background-light]="!item?.color"
+        [class.background-dark]="item?.color === 'primary'"
+        [color]="item?.color"
+        >{{ item.name | translate }}</button
+      >
     </ng-container>
   </div>
   <div *ngIf="!drawerControls.mobileQueryMatches()" class="navbar__lang">

@@ -1,33 +1,106 @@
 @import 'abstracts/variables';
+@import "abstracts/queries";
 
-.text {
-  text-align: center;
+@mixin typography-token(
+  $font-size,
+  $font-weight: 400,
+  $color: $color-text-dark,
+  $text-align: left,
+  $letter-spacing: normal,
+  $word-spacing: normal
+) {
+  font-size: $font-size;
+  color: $color;
+  text-align: $text-align;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  word-spacing: $word-spacing;
+}
 
-  &--heading {
-    font-size: 4rem;
-    font-weight: 500;
-    color: $color-light;
+@mixin landscape-heading {
+  @include typography-token(2rem, 500, $color-light, center);
 
-    @media only screen and (max-width: $bp-small) {
-      font-size: 2.2rem;
-    }
-
-    @media only screen and (max-width: $bp-mobile) {
-      font-size: 1.8rem;
-    }
+  @include for-small {
+    @include typography-token(2.5rem, 500, $color-light, center);
   }
 
-  &--subheading {
-    font-size: 3rem;
-    font-weight: 500;
-    color: $color-accent;
+  @include for-large {
+    @include typography-token(3.2rem, 500, $color-light, center);
+  }
 
-    @media only screen and (max-width: $bp-small) {
-      font-size: 2.2rem;
-    }
+  @include for-x-large {
+    @include typography-token(3.5rem, 500, $color-light, center);
+  }
+}
 
-    @media only screen and (max-width: $bp-mobile) {
-      font-size: 1.8rem;
-    }
+@mixin landscape-subheading {
+  @include typography-token(1.3rem, 500, $color-accent, center);
+
+  @include for-small {
+    @include typography-token(1.7rem, 500, $color-accent, center);
+  }
+
+  @include for-large {
+    @include typography-token(2.2rem, 500, $color-accent, center);
+  }
+
+  @include for-x-large {
+    @include typography-token(2.5rem, 500, $color-accent, center);
+  }
+}
+
+@mixin blog-section-heading {
+  @include typography-token(1.7rem, 600, $color-text-dark, center);
+
+  @include for-small {
+    @include typography-token(1.85rem, 600, $color-text-dark, center);
+  }
+
+  @include for-large {
+    @include typography-token(2.2rem, 600, $color-text-dark, center);
+  }
+
+  @include for-x-large {
+    @include typography-token(2.3rem, 600, $color-text-dark, center);
+  }
+}
+
+@mixin blog-title {
+  @include typography-token(1.2rem, 500);
+
+  @include for-small {
+    @include typography-token(1.3rem, 500);
+  }
+
+  @include for-large {
+    @include typography-token(1.5rem, 500);
+  }
+
+  @include for-x-large {
+    @include typography-token(1.65rem, 500);
+  }
+}
+
+@mixin blog-text {
+  @include typography-token(.9rem, 400, $color-text-light, justify);
+
+  @include for-large {
+    @include typography-token(1rem, 400, $color-text-light, justify);
+  }
+}
+
+@mixin blog-date {
+  @include typography-token(0.9rem, 500, $color-accent);
+
+  @include for-large {
+    @include typography-token(1rem, 500, $color-accent);
+  }
+}
+
+@mixin blog-tag {
+  @include typography-token(0.8rem, 400, $color-light);
+
+  @include for-large {
+    @include typography-token(0.9rem, 400, $color-light);
   }
 }
