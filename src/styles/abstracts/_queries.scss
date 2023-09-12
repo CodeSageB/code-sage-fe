@@ -1,0 +1,31 @@
+@import 'abstracts/variables';
+
+@mixin for-phone-only {
+  @media only screen and (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media only screen and (min-width: $bp-tablet-up) {
+    @content;
+  }
+}
+
+@mixin for-small {
+  @media only screen and (min-width: $bp-small) {
+    @content;
+  }
+}
+
+@mixin for-large {
+  @media only screen and (min-width: $bp-large) {
+    @content;
+  }
+}
+
+@mixin for-x-large {
+  @media only screen and (min-width: $bp-xlarge) {
+    @content;
+  }
+}

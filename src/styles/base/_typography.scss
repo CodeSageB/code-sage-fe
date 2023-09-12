@@ -1,4 +1,5 @@
 @import 'abstracts/variables';
+@import "abstracts/queries";
 
 @mixin typography-token(
   $font-size,
@@ -17,29 +18,89 @@
 }
 
 @mixin landscape-heading {
-  @include typography-token(3.2rem, 500, $color-light, center);
+  @include typography-token(2rem, 500, $color-light, center);
+
+  @include for-small {
+    @include typography-token(2.5rem, 500, $color-light, center);
+  }
+
+  @include for-large {
+    @include typography-token(3.2rem, 500, $color-light, center);
+  }
+
+  @include for-x-large {
+    @include typography-token(3.5rem, 500, $color-light, center);
+  }
 }
 
 @mixin landscape-subheading {
-  @include typography-token(2.5rem, 500, $color-accent, center);
+  @include typography-token(1.3rem, 500, $color-accent, center);
+
+  @include for-small {
+    @include typography-token(1.7rem, 500, $color-accent, center);
+  }
+
+  @include for-large {
+    @include typography-token(2.2rem, 500, $color-accent, center);
+  }
+
+  @include for-x-large {
+    @include typography-token(2.5rem, 500, $color-accent, center);
+  }
 }
 
 @mixin blog-section-heading {
-  @include typography-token(2.4rem, 600, $color-text-dark, center);
+  @include typography-token(1.7rem, 600, $color-text-dark, center);
+
+  @include for-small {
+    @include typography-token(1.85rem, 600, $color-text-dark, center);
+  }
+
+  @include for-large {
+    @include typography-token(2.2rem, 600, $color-text-dark, center);
+  }
+
+  @include for-x-large {
+    @include typography-token(2.3rem, 600, $color-text-dark, center);
+  }
 }
 
 @mixin blog-title {
-  @include typography-token(1.6rem, 500);
+  @include typography-token(1.2rem, 500);
+
+  @include for-small {
+    @include typography-token(1.3rem, 500);
+  }
+
+  @include for-large {
+    @include typography-token(1.5rem, 500);
+  }
+
+  @include for-x-large {
+    @include typography-token(1.65rem, 500);
+  }
 }
 
 @mixin blog-text {
-  @include typography-token(1rem, 400, $color-text-light, justify);
+  @include typography-token(.9rem, 400, $color-text-light, justify);
+
+  @include for-large {
+    @include typography-token(1rem, 400, $color-text-light, justify);
+  }
 }
 
 @mixin blog-date {
-  @include typography-token(1rem, 500, $color-accent);
+  @include typography-token(0.9rem, 500, $color-accent);
+
+  @include for-large {
+    @include typography-token(1rem, 500, $color-accent);
+  }
 }
 
 @mixin blog-tag {
-  @include typography-token(0.9rem, 500, $color-light);
+  @include typography-token(0.8rem, 400, $color-light);
+
+  @include for-large {
+    @include typography-token(0.9rem, 400, $color-light);
+  }
 }

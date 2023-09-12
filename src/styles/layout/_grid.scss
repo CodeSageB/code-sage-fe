@@ -1,27 +1,34 @@
+@import 'abstracts/variables';
+@import 'abstracts/queries';
+
 .container {
   display: grid;
-  grid-template-columns: [full-start] 1fr [center-start] repeat(8, minmax(min-content, 10rem)) [center-end] 1fr [full-end];
   justify-content: center;
+  grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
 
-  @media only screen and (max-width: $bp-xlarge) {
-    grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
+  @include for-tablet-portrait-up {
+      grid-template-columns: [full-start] 1rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 1rem [full-end];
   }
 
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+  @include for-small {
+    grid-template-columns: [full-start] 6rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 6rem [full-end];
   }
 
-  @media only screen and (max-width: $bp-mobile) {
-    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+  @include for-large {
+    grid-template-columns: [full-start] 1fr [center-start] repeat(8, 6rem) [center-end] 1fr [full-end];
+  }
+
+  @include for-x-large {
+    grid-template-columns: [full-start] 1fr [center-start] repeat(8, 8rem) [center-end] 1fr [full-end];
   }
 
   &__content--center {
     grid-column: center-start / center-end;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   &__content--full {
     grid-column: 1 / -1;
-    padding: 2rem;
+    padding: 1rem;
   }
 }
