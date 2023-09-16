@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { LanguagesEnum } from '../schema/languages.enum';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -8,24 +8,29 @@ import { TranslateService } from '@ngx-translate/core';
 export class LocalisationService {
   private readonly localStorageLanguageKey = 'language';
 
+  private readonly availableLanguages = Object.values(LanguagesEnum);
+
   public currentLangSignal = signal(LanguagesEnum.EN);
 
-  public allLangsSignal = signal(Object.values(LanguagesEnum));
+  public allLangsSignal = signal(this.availableLanguages);
 
   constructor(private _translateService: TranslateService) {
+    effect(() => {
+      localStorage.setItem(this.localStorageLanguageKey, this.currentLangSignal());
+    });
+
     this.initTranslation();
   }
 
   public setLang(lang: string): void {
     this._translateService.use(lang);
-    localStorage.setItem(this.localStorageLanguageKey, lang);
     this.currentLangSignal.set(lang as LanguagesEnum);
   }
 
   private getLanguageFromStorage(): string | null {
     const language = localStorage.getItem(this.localStorageLanguageKey);
 
-    if (this.isLanguage(language)) {
+    if (this.isAvailableLanguage(language)) {
       return language;
     }
 
@@ -43,7 +48,7 @@ export class LocalisationService {
     }
   }
 
-  private isLanguage(lang: string | null): lang is LanguagesEnum {
-    return !!lang && Object.values(LanguagesEnum).includes(lang as LanguagesEnum);
+  private isAvailableLanguage(lang: string | null): lang is LanguagesEnum {
+    return !!lang && this.availableLanguages.includes(lang as LanguagesEnum);
   }
 }
