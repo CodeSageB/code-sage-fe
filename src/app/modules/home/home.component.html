@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="home__blogs container__content--center">
-    <h2 class="home__blogs__heading text text--subheading">Latest from the blog</h2>
+    <h2 class="home__blogs__heading text text--subheading">{{ 'blog-latest' | translate }}</h2>
     <ng-container *ngIf="blogs$ | async as blogs; else loading">
       <app-blog-list [blogs]="blogs"></app-blog-list>
       <div class="home__blogs__button">
