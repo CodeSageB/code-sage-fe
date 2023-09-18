@@ -6,9 +6,17 @@ import { HomeComponent } from './home.component';
 import { BlogListComponent } from '../../shared/components/blog-list/blog-list.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule, BlogListComponent, MatButtonModule, SpinnerComponent],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    BlogListComponent,
+    MatButtonModule,
+    SpinnerComponent,
+    TranslateModule,
+  ],
 })
 export class HomeModule {}
