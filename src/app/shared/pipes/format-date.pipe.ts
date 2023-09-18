@@ -11,6 +11,10 @@ import { LocalisationService } from '../services/localisation.service';
   standalone: true,
 })
 export class FormatDatePipe implements PipeTransform {
+  private readonly czechDateFormat = 'd. MMMM yyyy';
+
+  private readonly englishDateFormat = 'MMMM d, yyyy';
+
   constructor(private localisationService: LocalisationService) {}
 
   transform(date: Date, dateFormat?: string): string {
@@ -23,6 +27,6 @@ export class FormatDatePipe implements PipeTransform {
 
   private prepareDateFormat(): string {
     const locale = this.localisationService.currentLangSignal();
-    return locale === LanguagesEnum.CS ? 'd. MMMM yyyy' : 'MMMM d, yyyy';
+    return locale === LanguagesEnum.CS ? this.czechDateFormat : this.englishDateFormat;
   }
 }
