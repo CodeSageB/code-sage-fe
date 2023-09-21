@@ -7,8 +7,8 @@
   </div>
   <div class="home__blogs container__content--center">
     <h2 class="home__blogs__heading text text--subheading">{{ 'blog-latest' | translate }}</h2>
-    <ng-container *ngIf="blogs$ | async as blogs; else loading">
-      <app-blog-list [blogs]="blogs"></app-blog-list>
+    <ng-container *ngIf="!loading(); else spinner">
+      <app-blog-list [blogs]="blogs()"></app-blog-list>
       <div class="home__blogs__button">
         <button mat-flat-button color="accent">View all blogs</button>
       </div>
@@ -16,6 +16,6 @@
   </div>
 </section>
 
-<ng-template #loading>
+<ng-template #spinner>
   <app-spinner></app-spinner>
 </ng-template>

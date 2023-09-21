@@ -5,3 +5,8 @@ export interface Blog {
   tags: string[];
   created: Date;
 }
+
+export interface BlogState {
+  blogs: Blog[];
+  loading: boolean;
+}

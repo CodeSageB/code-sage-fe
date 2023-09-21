@@ -1,6 +1,7 @@
 import { effect, Injectable, signal } from '@angular/core';
 import { LanguagesEnum } from '../schema/languages.enum';
 import { TranslateService } from '@ngx-translate/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,8 @@ export class LocalisationService {
   public currentLangSignal = signal(LanguagesEnum.EN);
 
   public allLangsSignal = signal(this.availableLanguages);
+
+  public currentLang$ = toObservable(this.currentLangSignal);
 
   constructor(private _translateService: TranslateService) {
     effect(() => {
