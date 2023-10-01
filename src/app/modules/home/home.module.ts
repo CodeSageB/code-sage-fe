@@ -7,6 +7,7 @@ import { BlogListComponent } from '../../shared/components/blog-list/blog-list.c
 import { MatButtonModule } from '@angular/material/button';
 import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { BlogsService } from '../../shared/services/blogs.service';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -18,5 +19,6 @@ import { TranslateModule } from '@ngx-translate/core';
     SpinnerComponent,
     TranslateModule,
   ],
+  providers: [BlogsService],
 })
 export class HomeModule {}

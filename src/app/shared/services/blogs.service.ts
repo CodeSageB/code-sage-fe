@@ -8,9 +8,7 @@ import { LanguagesEnum } from '../schema/languages.enum';
 import { LocalisationService } from './localisation.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class BlogsService {
   private loadBlogs = this.localisationService.currentLang$.pipe(
     takeUntilDestroyed(),
