@@ -10,7 +10,7 @@
     <ng-container *ngIf="!loading(); else spinner">
       <app-blog-list [blogs]="blogs()"></app-blog-list>
       <div class="home__blogs__button">
-        <button mat-flat-button color="accent">View all blogs</button>
+        <button mat-flat-button color="accent">{{ 'blog-view-all' | translate }}</button>
       </div>
     </ng-container>
   </div>
