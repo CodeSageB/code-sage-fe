@@ -7,7 +7,11 @@ import { BlogsService } from '../../shared/services/blogs.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  blogs$ = this.blogsService.getBlogs();
+  public loading = this.blogsService.loading;
 
-  constructor(private blogsService: BlogsService) {}
+  public blogs = this.blogsService.blogs;
+
+  constructor(private blogsService: BlogsService) {
+    this.blogsService.loadAllBLogs();
+  }
 }
