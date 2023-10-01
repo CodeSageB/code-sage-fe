@@ -11,7 +11,7 @@ export class HomeComponent {
 
   public blogs = this.blogsService.blogs;
 
-  constructor(public blogsService: BlogsService) {
+  constructor(private blogsService: BlogsService) {
     this.blogsService.loadAllBLogs();
   }
 }
