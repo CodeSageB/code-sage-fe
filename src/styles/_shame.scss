@@ -1,3 +1,9 @@
+@import "abstracts/variables";
+
 .mat-drawer-content {
   overflow-y: hidden !important;
+}
+
+.mat-drawer-container {
+  height: 100% !important;
 }

@@ -9,4 +9,5 @@ export interface Blog {
 export interface BlogState {
   blogs: Blog[];
   loading: boolean;
+  error: string | null;
 }

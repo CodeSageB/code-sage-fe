@@ -9,6 +9,8 @@ import { BlogsService } from '../../shared/services/blogs.service';
 export class HomeComponent {
   public loading = this.blogsService.loading;
 
+  public error = this.blogsService.error;
+
   public blogs = this.blogsService.blogs;
 
   constructor(private blogsService: BlogsService) {
