@@ -6,16 +6,22 @@
     </div>
   </div>
   <div class="home__blogs container__content--center">
-    <h2 class="home__blogs__heading text text--subheading">{{ 'blog-latest' | translate }}</h2>
-    <ng-container *ngIf="!loading(); else spinner">
-      <app-blog-list [blogs]="blogs()"></app-blog-list>
-      <div class="home__blogs__button">
-        <button mat-flat-button color="accent">{{ 'blog-view-all' | translate }}</button>
-      </div>
+    <ng-container *ngIf="!error(); else errorTemplate">
+      <h2 class="home__blogs__heading text text--subheading">{{ 'blog-latest' | translate }}</h2>
+      <ng-container *ngIf="!loading(); else spinner">
+        <app-blog-list [blogs]="blogs()"></app-blog-list>
+        <div class="home__blogs__button">
+          <button mat-flat-button color="accent">{{ 'blog-view-all' | translate }}</button>
+        </div>
+      </ng-container>
     </ng-container>
   </div>
 </section>
 
 <ng-template #spinner>
   <app-spinner></app-spinner>
+</ng-template>
+
+<ng-template #errorTemplate>
+  <app-error [message]="'blog-data-error' | translate"></app-error>
 </ng-template>

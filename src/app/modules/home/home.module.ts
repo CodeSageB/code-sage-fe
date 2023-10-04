@@ -7,6 +7,7 @@ import { BlogListComponent } from '../../shared/components/blog-list/blog-list.c
 import { MatButtonModule } from '@angular/material/button';
 import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ErrorComponent } from '../../shared/components/error/error.component';
 import { BlogsService } from '../../shared/services/blogs.service';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { BlogsService } from '../../shared/services/blogs.service';
     MatButtonModule,
     SpinnerComponent,
     TranslateModule,
+    ErrorComponent,
   ],
   providers: [BlogsService],
 })

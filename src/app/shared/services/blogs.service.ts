@@ -21,13 +21,17 @@ export class BlogsService {
     }),
   );
 
-  private state = signal<BlogState>({ blogs: [], loading: true });
+  private state = signal<BlogState>({ blogs: [], loading: true, error: null });
 
   public loading = computed(() => this.state().loading);
 
   public blogs = computed(() => this.state().blogs);
 
+  public error = computed(() => this.state().error);
+
   public setLoading$ = new Subject<boolean>();
+
+  public error$ = new Subject<string>();
 
   constructor(
     private http: HttpClient,
@@ -36,11 +40,20 @@ export class BlogsService {
     this.setLoading$.pipe(takeUntilDestroyed()).subscribe((val) => {
       this.state.update((state) => ({ ...state, loading: val }));
     });
+
+    this.error$.pipe(takeUntilDestroyed()).subscribe((val) => {
+      this.state.update((state) => ({ ...state, error: val, loading: false }));
+    });
   }
 
   public loadAllBLogs(): void {
-    this.loadBlogs.pipe(takeUntilDestroyed()).subscribe((blog) => {
-      this.state.update((state) => ({ ...state, blogs: blog, loading: false }));
+    this.loadBlogs.pipe(takeUntilDestroyed()).subscribe({
+      next: (blogs) => {
+        this.state.update((state) => ({ ...state, blogs: blogs, loading: false }));
+      },
+      error: (err) => {
+        this.error$.next(err.message);
+      },
     });
   }
 
