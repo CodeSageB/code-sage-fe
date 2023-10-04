@@ -7,6 +7,7 @@
   "en": "English",
   "sections": "Sections",
   "language": "Language",
+  "blog-view-all": "View all posts",
   "blog-latest": "Latest from the blog",
-  "blog-view-all": "View all posts"
+  "blog-data-error": "Oops! We couldn't fetch the blog posts. Please try again later."
 }
