@@ -1,0 +1,14 @@
+<section class="container">
+  <div class="container__content--center">
+    <ng-container *ngIf="!error(); else errorBlog">
+      <app-blog-list *ngIf="!loading(); else spinner" [blogs]="blogs()"> </app-blog-list>
+    </ng-container>
+  </div>
+</section>
+
+<ng-template #errorBlog>
+  <app-error [message]="'blog-data-error' | translate"></app-error>
+</ng-template>
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>
