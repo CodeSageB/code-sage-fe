@@ -6,8 +6,14 @@ export interface Blog {
   created: Date;
 }
 
+export interface BlogList {
+  totalCount: number;
+  blogs: Blog[];
+}
+
 export interface BlogState {
   blogs: Blog[];
   loading: boolean;
   error: string | null;
+  totalCount: number;
 }

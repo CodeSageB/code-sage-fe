@@ -9,5 +9,6 @@
   "language": "Language",
   "blog-view-all": "View all posts",
   "blog-latest": "Latest from the blog",
-  "blog-data-error": "Oops! We couldn't fetch the blog posts. Please try again later."
+  "blog-data-error": "Oops! We couldn't fetch the blog posts. Please try again later.",
+  "load-more": "Load more"
 }

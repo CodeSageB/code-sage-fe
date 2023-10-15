@@ -29,29 +29,5 @@
     &__heading {
       @include blog-section-heading;
     }
-
-    .mat-mdc-unelevated-button.mat-accent {
-      --mdc-filled-button-label-text-color: #fbeaeb !important;
-    }
-
-    &__button {
-      display: flex;
-      justify-content: center;
-      & button {
-        @include typography-token(1rem, 400, $color-light);
-        padding: 1rem 1.5rem;
-        margin: 0 auto;
-
-        @include for-small {
-          @include typography-token(1.2rem, 400, $color-light);
-          padding: 1.2rem 1.7rem;
-        }
-
-        @include for-large {
-          @include typography-token(1.4rem, 400, $color-light);
-          padding: 1.4rem 2rem;
-        }
-      }
-    }
   }
 }

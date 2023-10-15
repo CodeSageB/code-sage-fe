@@ -25,9 +25,14 @@ export class LocalisationService {
     this.initTranslation();
   }
 
-  public setLang(lang: string): void {
+  public setLang(lang: string, init = false): void {
     this._translateService.use(lang);
     this.currentLangSignal.set(lang as LanguagesEnum);
+
+    // Reload page if it's not initialisation, it is a lot easier to reload page because of blog list component
+    if (!init) {
+      location.reload();
+    }
   }
 
   private getLanguageFromStorage(): string | null {
@@ -47,7 +52,7 @@ export class LocalisationService {
     const lang = this.getLanguageFromStorage();
 
     if (lang) {
-      this.setLang(lang);
+      this.setLang(lang, true);
     }
   }
 
