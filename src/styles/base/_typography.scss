@@ -1,5 +1,5 @@
 @import 'abstracts/variables';
-@import "abstracts/queries";
+@import 'abstracts/queries';
 
 @mixin typography-token(
   $font-size,
@@ -50,18 +50,18 @@
 }
 
 @mixin blog-section-heading {
-  @include typography-token(1.7rem, 600, $color-text-dark, center);
+  @include typography-token(1.7rem, 500, $color-text-dark, center);
 
   @include for-small {
-    @include typography-token(1.85rem, 600, $color-text-dark, center);
+    @include typography-token(1.85rem, 500, $color-text-dark, center);
   }
 
   @include for-large {
-    @include typography-token(2.2rem, 600, $color-text-dark, center);
+    @include typography-token(2.2rem, 500, $color-text-dark, center);
   }
 
   @include for-x-large {
-    @include typography-token(2.3rem, 600, $color-text-dark, center);
+    @include typography-token(2.3rem, 500, $color-text-dark, center);
   }
 }
 
@@ -82,7 +82,7 @@
 }
 
 @mixin blog-text {
-  @include typography-token(.9rem, 400, $color-text-light, justify);
+  @include typography-token(0.9rem, 400, $color-text-light, justify);
 
   @include for-large {
     @include typography-token(1rem, 400, $color-text-light, justify);

@@ -1,4 +1,4 @@
-import { computed, Injectable, OnDestroy, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { BlogState } from '../../schema/blog';
 import { BehaviorSubject, Subject, switchMap, tap } from 'rxjs';
 import { Pagination } from '../../schema/pagination';
@@ -7,7 +7,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BlogsService } from '../../services/blogs.service';
 
 @Injectable()
-export class BlogListStateService implements OnDestroy {
+export class BlogListStateService {
   private state = signal<BlogState>({ blogs: [], totalCount: 0, loading: true, error: null });
 
   public loading = computed(() => this.state().loading);
@@ -33,10 +33,6 @@ export class BlogListStateService implements OnDestroy {
         .pipe(tap(() => this.setLoading$.next(false)));
     }),
   );
-
-  ngOnDestroy(): void {
-    console.log('Done');
-  }
 
   constructor(
     private blogsService: BlogsService,

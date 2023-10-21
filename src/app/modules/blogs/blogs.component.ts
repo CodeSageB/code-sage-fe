@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blogs.component.scss'],
 })
 export class BlogsComponent {
-  public readonly itemsPerPage = 20;
+  public readonly itemsPerPage = 10;
 }
