@@ -1,8 +1,42 @@
 <div *ngIf="showFilter"> Filter </div>
 <div class="blogs-list">
-  <ng-container *ngFor="let blog of blogs; let i = index">
-    <app-blog [blog]="blog"></app-blog>
-    <mat-divider class="divider" *ngIf="blogs.length - 1 !== i"></mat-divider>
+  <ng-container *ngIf="!error(); else errorBlog">
+    <ng-container *ngIf="!loading() || blogs().length > 0; else spinner">
+      <ng-container *ngFor="let blog of blogs(); let i = index; trackBy: trackBy">
+        <app-blog [blog]="blog"></app-blog>
+        <mat-divider class="divider" *ngIf="blogs().length - 1 !== i"></mat-divider>
+      </ng-container>
+      <ng-container *ngIf="!isBlogsPreview; else blogPreviewButton">
+        <ng-container *ngIf="!loading(); else spinner">
+          <button
+            *ngIf="blogs().length < totalCountBlogs()"
+            class="blogs-list-button"
+            mat-flat-button
+            color="accent"
+            (click)="blogsStateService.loadMoreBlogs()"
+            >{{ 'load-more' | translate }}</button
+          >
+        </ng-container>
+      </ng-container>
+    </ng-container>
   </ng-container>
 </div>
-<div *ngIf="showPagination"> pagination </div>
+
+<ng-template #blogPreviewButton>
+  <div class="blogs-list__view-all">
+    <button
+      class="blogs-list-button"
+      mat-flat-button
+      color="accent"
+      [routerLink]="fullBlogListUrl ?? '/blogs'"
+      >{{ 'blog-view-all' | translate }}</button
+    >
+  </div>
+</ng-template>
+
+<ng-template #errorBlog>
+  <app-error [message]="'blog-data-error' | translate"></app-error>
+</ng-template>
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

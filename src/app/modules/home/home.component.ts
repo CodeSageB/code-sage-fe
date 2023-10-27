@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BlogsService } from '../../shared/services/blogs.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +6,5 @@ import { BlogsService } from '../../shared/services/blogs.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public loading = this.blogsService.loading;
-
-  public error = this.blogsService.error;
-
-  public blogs = this.blogsService.blogs;
-
-  constructor(private blogsService: BlogsService) {
-    this.blogsService.loadAllBLogs();
-  }
+  public readonly itemsPerPage = 5;
 }

@@ -9,6 +9,7 @@
         [class.background-light]="!item?.color"
         [class.background-dark]="item?.color === 'primary'"
         [color]="item?.color"
+        [routerLink]="item.url"
         >{{ item.name | translate }}</button
       >
     </ng-container>
