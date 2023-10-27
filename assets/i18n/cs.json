@@ -9,5 +9,6 @@
   "language": "Jazyk",
   "blog-latest": "To nejnovější z blogu",
   "blog-view-all": "Zobrazit vše",
-  "blog-data-error": "Ups! Příspěvky na blogu se nám nepodařilo načíst. Zkuste to prosím později."
+  "blog-data-error": "Ups! Příspěvky na blogu se nám nepodařilo načíst. Zkuste to prosím později.",
+  "load-more": "Načíst další"
 }
