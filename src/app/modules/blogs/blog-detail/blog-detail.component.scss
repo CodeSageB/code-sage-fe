@@ -1,0 +1,18 @@
+@import 'base/typography';
+
+.blog-detail {
+  &__heading {
+    @include blog-detail-heading;
+  }
+
+  &__date {
+    margin-top: .3rem;
+    @include blog-date;
+  }
+
+  &__content {
+    margin-top: 2rem;
+    @include blog-text;
+    white-space: pre-wrap;
+  }
+}

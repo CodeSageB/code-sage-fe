@@ -34,6 +34,8 @@ export class BlogListComponent implements OnInit {
 
   @Input() itemsPerPage?: number;
 
+  public readonly DETAIL_URL = '/blogs/detail/';
+
   public loading = this.blogsStateService.loading;
 
   public error = this.blogsStateService.error;
