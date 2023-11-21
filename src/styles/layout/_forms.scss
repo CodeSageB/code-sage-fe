@@ -1,0 +1,51 @@
+@import 'abstracts/variables';
+@import 'abstracts/queries';
+
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  background-color: #fff;
+  padding: 3rem 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+}
+
+.span {
+  &-4 {
+    grid-column: span 4;
+
+    @include for-x-large {
+      grid-column: span 6;
+    }
+
+    @include for-small {
+      grid-column: span 12;
+    }
+  }
+
+  &-6 {
+    grid-column: span 6;
+
+    @include for-small {
+      grid-column: span 12;
+    }
+  }
+
+  &-8 {
+    grid-column: span 8;
+    @include for-phone-only {
+      grid-column: span 12;
+    }
+  }
+
+  &-12 {
+    grid-column: span 12;
+  }
+}

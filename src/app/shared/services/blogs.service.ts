@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LanguagesEnum } from '../schema/languages.enum';
 import { Pagination } from '../schema/pagination';
 import { Observable } from 'rxjs';
-import { Blog, BlogList } from '../schema/blog';
+import { Blog, BlogList, CreateBlogRequest } from '../schema/blog';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { LocalisationService } from './localisation.service';
@@ -26,5 +26,9 @@ export class BlogsService {
     const params = new HttpParams().set('lang', this.localisationService.currentLangSignal());
 
     return this.http.get<Blog>(`${this.baseUrl}/${id}`, { params });
+  }
+
+  public createBlog(blog: CreateBlogRequest): Observable<Blog> {
+    return this.http.post<Blog>(`${this.baseUrl}`, blog);
   }
 }

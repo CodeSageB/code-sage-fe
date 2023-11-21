@@ -9,9 +9,12 @@ import { BlogListComponent } from '../../shared/components/blog-list/blog-list.c
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
 import { FormatDatePipe } from '../../shared/pipes/format-date.pipe';
+import { MaterialModule } from '../../shared/material.module';
+import { CreateBlogComponent } from './create-blog/create-blog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [BlogsComponent, BlogDetailComponent],
+  declarations: [BlogsComponent, BlogDetailComponent, CreateBlogComponent],
   imports: [
     CommonModule,
     BlogsRoutingModule,
@@ -20,6 +23,8 @@ import { FormatDatePipe } from '../../shared/pipes/format-date.pipe';
     BlogListComponent,
     SpinnerComponent,
     FormatDatePipe,
+    MaterialModule,
+    ReactiveFormsModule,
   ],
 })
 export class BlogsModule {}

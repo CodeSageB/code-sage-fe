@@ -1,5 +1,10 @@
 <section class="container blogs">
-  <div class="blogs__list container__content--center">
-    <app-blog-list [itemsPerPage]="itemsPerPage"></app-blog-list>
+  <div class="container__content--center">
+    <button [routerLink]="'/blogs/create'" class="blogs__create" mat-flat-button color="primary">{{
+      'blog-create' | translate
+    }}</button>
+    <div class="blogs__list">
+      <app-blog-list [itemsPerPage]="itemsPerPage"></app-blog-list>
+    </div>
   </div>
 </section>
