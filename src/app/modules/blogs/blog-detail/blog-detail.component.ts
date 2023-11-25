@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Blog } from '../../../shared/schema/blog';
-import { Observable, of, switchMap } from 'rxjs';
+import { catchError, Observable, of, switchMap } from 'rxjs';
 import { BlogsService } from '../../../shared/services/blogs.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class BlogDetailComponent {
   // TODO Situace když blog v jiném jazace neexistuje. Při refreshi přesměrovat na domovskou stranku nebo to resit v detailu?
   constructor(
     private route: ActivatedRoute,
-    private blogsService: BlogsService,
+    public blogsService: BlogsService,
+    private router: Router,
   ) {
     this.blog = this.route.paramMap.pipe(
       switchMap((params) => {
@@ -24,6 +25,16 @@ export class BlogDetailComponent {
 
         return this.blogsService.getBlog(blogId);
       }),
+      catchError(() => {
+        this.router.navigate(['/blogs'], { queryParams: { error: 'no-detail' } });
+        return of(null);
+      }),
     );
+  }
+
+  public removeBlog(id: string): void {
+    this.blogsService.removeBlog(id).subscribe(() => {
+      this.router.navigate(['/blogs']);
+    });
   }
 }

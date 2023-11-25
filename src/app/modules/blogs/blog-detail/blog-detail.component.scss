@@ -1,6 +1,11 @@
 @import 'base/typography';
 
 .blog-detail {
+  &--actions {
+    display: flex;
+    gap: 1rem;
+  }
+
   &__heading {
     @include blog-detail-heading;
   }

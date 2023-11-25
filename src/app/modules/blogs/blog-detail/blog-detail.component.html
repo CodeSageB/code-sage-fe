@@ -2,7 +2,12 @@
   <div class="container__content--center">
     <ng-container *ngIf="blog | async as blog; else spinner">
       <div class="blog-detail">
-        <h1 class="blog-detail__heading">{{ blog.title }}</h1>
+        <div class="blog-detail--actions">
+          <h1 class="blog-detail__heading">{{ blog.title }}</h1>
+          <button mat-icon-button color="primary" (click)="removeBlog(blog.id)">
+            <mat-icon>delete</mat-icon></button
+          >
+        </div>
         <div class="blog-detail__date"> {{ blog.created | formatDate }} </div>
         <div class="blog-detail__content">{{ blog.content }}</div>
       </div>
