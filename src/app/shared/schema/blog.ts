@@ -5,6 +5,7 @@ export interface Blog {
   title: string;
   content: string;
   tags: string[];
+  language: string;
   created: Date;
 }
 
@@ -31,7 +32,7 @@ export interface BlogsLanguageForm {
   language: FormControl<string>;
 }
 
-export interface CreateBlogRequest {
+export interface BlogRequest {
   translations: CreateBlogTranslation[];
   tags: string[];
 }

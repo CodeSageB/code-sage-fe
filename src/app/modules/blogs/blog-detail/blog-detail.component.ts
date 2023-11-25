@@ -10,7 +10,7 @@ import { BlogsService } from '../../../shared/services/blogs.service';
   styleUrls: ['./blog-detail.component.scss'],
 })
 export class BlogDetailComponent {
-  public blog: Observable<Blog | null> = of(null);
+  public blog$: Observable<Blog | null> = of(null);
 
   // TODO Situace když blog v jiném jazace neexistuje. Při refreshi přesměrovat na domovskou stranku nebo to resit v detailu?
   constructor(
@@ -18,7 +18,7 @@ export class BlogDetailComponent {
     public blogsService: BlogsService,
     private router: Router,
   ) {
-    this.blog = this.route.paramMap.pipe(
+    this.blog$ = this.route.paramMap.pipe(
       switchMap((params) => {
         const blogId = params.get('id');
         if (!blogId) return of(null);

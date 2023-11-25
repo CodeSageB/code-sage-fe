@@ -12,9 +12,17 @@ import { FormatDatePipe } from '../../shared/pipes/format-date.pipe';
 import { MaterialModule } from '../../shared/material.module';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BlogFormComponent } from './forms/blog-form/blog-form.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 @NgModule({
-  declarations: [BlogsComponent, BlogDetailComponent, CreateBlogComponent],
+  declarations: [
+    BlogsComponent,
+    BlogDetailComponent,
+    CreateBlogComponent,
+    BlogFormComponent,
+    EditBlogComponent,
+  ],
   imports: [
     CommonModule,
     BlogsRoutingModule,

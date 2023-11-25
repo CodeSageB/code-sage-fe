@@ -1,0 +1,12 @@
+<section class="container">
+  <div class="container__content--center">
+    <!--    TODO bylo by vhodnejsi upravit BE aby pri editu prisly vsechny existujici preklady a ne jenom 1, protoze tagy se vazou k blogId. takze pri uprave tagu v cz zmenim i tagy en-->
+    <ng-container *ngIf="blog$ | async as blog; else spinner">
+      <app-blog-form (submitEvent)="updateBlog($event, blog.id)" [blog]="blog"></app-blog-form>
+    </ng-container>
+  </div>
+</section>
+
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>
