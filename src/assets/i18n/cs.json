@@ -21,5 +21,7 @@
   "language-cs": "Čeština",
   "language-en": "Angličtina",
   "remove": "Odstranit",
-  "create": "Vytvořit"
+  "create": "Vytvořit",
+  "update": "Uložit",
+  "blog-update": "Upravit příspěvek"
 }

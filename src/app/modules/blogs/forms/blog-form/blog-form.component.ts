@@ -1,7 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LanguagesEnum } from '../../../../shared/schema/languages.enum';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Blog, BlogForm, BlogsLanguageForm } from '../../../../shared/schema/blog';
+import {
+  BlogForm,
+  BlogsLanguageForm,
+  BlogTranslation,
+  BlogWithTranslations,
+} from '../../../../shared/schema/blog';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
@@ -12,7 +17,7 @@ import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
   styleUrls: ['./blog-form.component.scss'],
 })
 export class BlogFormComponent implements OnInit {
-  @Input() blog: Blog | null = null;
+  @Input() blog: BlogWithTranslations | null = null;
 
   @Output() submitEvent = new EventEmitter<BlogForm>();
 
@@ -44,7 +49,9 @@ export class BlogFormComponent implements OnInit {
         tags: [...this.blog.tags],
       });
       this.tags = [...this.blog.tags];
-      this.addBlog(this.blog.language as LanguagesEnum, this.blog);
+      this.blog.translations.forEach((blog) => {
+        this.addBlog(blog.language as LanguagesEnum, blog);
+      });
     }
   }
 
@@ -63,11 +70,11 @@ export class BlogFormComponent implements OnInit {
     this.blogsFormArray?.removeAt(index);
   }
 
-  private addBlog(lang: LanguagesEnum = LanguagesEnum.EN, existingBlog?: Blog): void {
+  private addBlog(lang: LanguagesEnum = LanguagesEnum.EN, translation?: BlogTranslation): void {
     const initializedBlog = this.fb.group<BlogsLanguageForm>({
-      title: this.fb.nonNullable.control(existingBlog?.title ?? '', Validators.required),
-      content: this.fb.nonNullable.control(existingBlog?.content ?? '', Validators.required),
-      language: this.fb.nonNullable.control(existingBlog?.language ?? lang, Validators.required),
+      title: this.fb.nonNullable.control(translation?.title ?? '', Validators.required),
+      content: this.fb.nonNullable.control(translation?.content ?? '', Validators.required),
+      language: this.fb.nonNullable.control(translation?.language ?? lang, Validators.required),
     });
 
     this.blogsFormArray?.push(initializedBlog);

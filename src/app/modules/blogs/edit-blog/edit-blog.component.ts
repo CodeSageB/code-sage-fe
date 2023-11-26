@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, of, switchMap } from 'rxjs';
-import { Blog, BlogForm } from '../../../shared/schema/blog';
+import { BlogForm, BlogWithTranslations } from '../../../shared/schema/blog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogsService } from '../../../shared/services/blogs.service';
 import { Utils } from '../../../shared/tools/utils';
@@ -11,7 +11,7 @@ import { Utils } from '../../../shared/tools/utils';
   styleUrls: ['./edit-blog.component.scss'],
 })
 export class EditBlogComponent {
-  public blog$: Observable<Blog | null> = of(null);
+  public blog$: Observable<BlogWithTranslations | null> = of(null);
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +23,7 @@ export class EditBlogComponent {
         const blogId = params.get('id');
         if (!blogId) return of(null);
 
-        return this.blogsService.getBlog(blogId);
+        return this.blogsService.getBlogWithAllTranslations(blogId);
       }),
     );
   }

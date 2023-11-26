@@ -1,5 +1,5 @@
 import { MenuItem } from '../schema/menu-item';
-import { BlogForm, BlogRequest, CreateBlogTranslation } from '../schema/blog';
+import { BlogForm, BlogRequest, BlogTranslation } from '../schema/blog';
 
 export class Utils {
   public static readonly MENU_ITEMS: MenuItem[] = [
@@ -10,7 +10,7 @@ export class Utils {
   ];
 
   public static MapBlogRequest(createBlogForm: BlogForm): BlogRequest {
-    const translations: CreateBlogTranslation[] = createBlogForm.blogs.getRawValue().map((blog) => {
+    const translations: BlogTranslation[] = createBlogForm.blogs.getRawValue().map((blog) => {
       return {
         title: blog.title,
         content: blog.content,

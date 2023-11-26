@@ -9,6 +9,13 @@ export interface Blog {
   created: Date;
 }
 
+export interface BlogWithTranslations {
+  id: string;
+  translations: BlogTranslation[];
+  tags: string[];
+  created: Date;
+}
+
 export interface BlogList {
   totalCount: number;
   blogs: Blog[];
@@ -33,11 +40,11 @@ export interface BlogsLanguageForm {
 }
 
 export interface BlogRequest {
-  translations: CreateBlogTranslation[];
+  translations: BlogTranslation[];
   tags: string[];
 }
 
-export interface CreateBlogTranslation {
+export interface BlogTranslation {
   title: string;
   content: string;
   language: string;

@@ -21,5 +21,7 @@
   "language-cs": "Czech",
   "language-en": "English",
   "remove": "Remove",
-  "create": "Create"
+  "create": "Create",
+  "update": "Save",
+  "blog-update": "Edit blog"
 }
