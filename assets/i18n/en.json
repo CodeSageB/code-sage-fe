@@ -10,5 +10,18 @@
   "blog-view-all": "View all posts",
   "blog-latest": "Latest from the blog",
   "blog-data-error": "Oops! We couldn't fetch the blog posts. Please try again later.",
-  "load-more": "Load more"
+  "load-more": "Load more",
+  "chips-hint": "To finish typing a word, press ENTER or the comma key",
+  "chips-required": "Required field - must contain at least 1 word",
+  "blog-create": "Create new post",
+  "blog-title": "Blog title",
+  "blog-content": "Blog content",
+  "blog-tags": "Tags",
+  "form-required": "Required field",
+  "language-cs": "Czech",
+  "language-en": "English",
+  "remove": "Remove",
+  "create": "Create",
+  "update": "Save",
+  "blog-update": "Edit blog"
 }
