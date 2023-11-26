@@ -2,7 +2,7 @@
   <mat-drawer position="end" #drawer mode="over" opened="false">
     <mat-nav-list>
       <ng-container *ngFor="let item of MENU_ITEMS">
-        <a mat-list-item class="list-item">{{ item.name | translate }}</a>
+        <a [routerLink]="item.url" mat-list-item class="list-item">{{ item.name | translate }}</a>
       </ng-container>
     </mat-nav-list>
     <mat-divider></mat-divider>

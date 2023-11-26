@@ -7,7 +7,7 @@
   grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
 
   @include for-tablet-portrait-up {
-      grid-template-columns: [full-start] 1rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 1rem [full-end];
+    grid-template-columns: [full-start] 1rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 1rem [full-end];
   }
 
   @include for-small {

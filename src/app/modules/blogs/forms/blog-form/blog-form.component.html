@@ -1,0 +1,68 @@
+<form class="form-content" [formGroup]="blogForm">
+  <ng-container formArrayName="blogs">
+    <h2 class="span-12">{{ (blog ? 'blog-update' : 'blog-create') | translate }}</h2>
+    <ng-container *ngIf="!blog">
+      <button mat-flat-button color="primary" (click)="addBlogLanguage(Languages.CS)">CZ</button>
+      <button mat-flat-button color="primary" (click)="addBlogLanguage(Languages.EN)">EN</button>
+    </ng-container>
+    <ng-container
+      *ngFor="let blogForm of blogsFormArray?.controls; let i = index"
+      [formGroupName]="i">
+      <h3 class="span-12"
+        >{{ 'language' | translate }} :
+        {{ 'language-' + blogForm.controls.language.value | translate }}</h3
+      >
+      <mat-form-field class="span-12" appearance="outline">
+        <mat-label>{{ 'blog-title' | translate }}</mat-label>
+        <input matInput formControlName="title" />
+        <mat-error>{{ 'form-required' | translate }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="span-12" appearance="outline">
+        <mat-label>{{ 'blog-content' | translate }}</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+        <mat-error>{{ 'form-required' | translate }}</mat-error>
+      </mat-form-field>
+      <button
+        *ngIf="!blog"
+        class="remove-button span-12"
+        mat-flat-button
+        color="primary"
+        (click)="removeBlog(i)"
+        >{{ 'remove' | translate }}</button
+      >
+    </ng-container>
+  </ng-container>
+  <h2 class="span-12">{{ 'blog-tags' | translate }}</h2>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{ 'blog-tags' | translate }}</mat-label>
+    <mat-chip-grid #chipGrid formControlName="tags">
+      <mat-chip-row
+        *ngFor="let tag of tags"
+        (removed)="removeTag(tag)"
+        [editable]="true"
+        (edited)="editTag(tag, $event)">
+        {{ tag }}
+        <button matChipRemove [attr.aria-label]="'remove ' + tag">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input
+        [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="addTag($event)" />
+    </mat-chip-grid>
+    <mat-hint>{{ 'chips-hint' | translate }}</mat-hint>
+    <mat-error>{{ 'form-required' | translate }}</mat-error>
+  </mat-form-field>
+  <div class="form-actions">
+    <button
+      class="submit-button"
+      mat-flat-button
+      color="primary"
+      (click)="submitForm()"
+      [disabled]="blogForm.invalid"
+      >{{ (blog ? 'update' : 'create') | translate }}</button
+    >
+  </div>
+</form>

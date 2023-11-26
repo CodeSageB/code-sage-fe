@@ -10,5 +10,18 @@
   "blog-latest": "To nejnovější z blogu",
   "blog-view-all": "Zobrazit vše",
   "blog-data-error": "Ups! Příspěvky na blogu se nám nepodařilo načíst. Zkuste to prosím později.",
-  "load-more": "Načíst další"
+  "load-more": "Načíst další",
+  "chips-hint": "Zadávání slova ukončete zmáčknutím klávesy ENTER nebo znakem čárky",
+  "chips-required": "Povinný údaj - musí obsahovat alespoň 1 slovo",
+  "blog-create": "Vytvořit příspěvek",
+  "blog-title": "Název příspěvku",
+  "blog-content": "Obsah příspěvku",
+  "blog-tags": "Tagy",
+  "form-required": "Povinné pole",
+  "language-cs": "Čeština",
+  "language-en": "Angličtina",
+  "remove": "Odstranit",
+  "create": "Vytvořit",
+  "update": "Uložit",
+  "blog-update": "Upravit příspěvek"
 }

@@ -104,3 +104,19 @@
     @include typography-token(0.9rem, 400, $color-light);
   }
 }
+
+@mixin blog-detail-heading {
+  @include typography-token(1.7rem, 500, $color-text-dark);
+
+  @include for-small {
+    @include typography-token(1.85rem, 500, $color-text-dark);
+  }
+
+  @include for-large {
+    @include typography-token(2.2rem, 500, $color-text-dark);
+  }
+
+  @include for-x-large {
+    @include typography-token(2.3rem, 500, $color-text-dark);
+  }
+}

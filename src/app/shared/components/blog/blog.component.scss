@@ -1,5 +1,17 @@
 @import 'abstracts/variables';
-@import "base/typography";
+@import 'base/typography';
+
+:host {
+  cursor: pointer;
+
+  &:hover {
+    .blog {
+      &__title {
+        color: $color-main;
+      }
+    }
+  }
+}
 
 .blog {
   display: grid;
@@ -26,6 +38,8 @@
   }
 
   &__tags {
+    cursor: pointer;
+
     &__tag {
       @include blog-tag;
       background: $color-main !important;

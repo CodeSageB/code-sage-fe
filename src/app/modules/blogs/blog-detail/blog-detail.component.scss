@@ -1,0 +1,23 @@
+@import 'base/typography';
+
+.blog-detail {
+  &--actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__heading {
+    @include blog-detail-heading;
+  }
+
+  &__date {
+    margin-top: 0.3rem;
+    @include blog-date;
+  }
+
+  &__content {
+    margin-top: 2rem;
+    @include blog-text;
+    white-space: pre-wrap;
+  }
+}

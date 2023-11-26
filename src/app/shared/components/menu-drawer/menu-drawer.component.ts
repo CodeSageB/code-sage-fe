@@ -4,7 +4,7 @@ import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { DrawerControlsService } from '../../services/drawer-controls.service';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageSwitchComponent } from '../language-switch/language-switch.component';
 import { Utils } from '../../tools/utils';
@@ -19,6 +19,7 @@ import { Utils } from '../../tools/utils';
     RouterOutlet,
     TranslateModule,
     LanguageSwitchComponent,
+    RouterLink,
   ],
   templateUrl: './menu-drawer.component.html',
   styleUrls: ['./menu-drawer.component.scss'],
